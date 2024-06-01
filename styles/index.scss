@@ -1,0 +1,274 @@
+@import "colors";
+@import "fonts";
+@import "standard";
+
+#app {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.app {
+  &__theme-night {
+    background-color: $background-color-night;
+  }
+
+  &__theme-day {
+    background-color: $background-color-day;
+  }
+}
+
+.app-content {
+  gap: 0.5rem;
+  width: 95%;
+
+  height: 100%;
+  text-align: center;
+  margin: 0 auto;
+
+  &__heading {
+    font-family: Rubik Scribble;
+    font-size: 3rem;
+    color: $primary-color;
+    text-shadow: 0px 0px 40px $other-1, 0px 0px 40px $other-2;
+    margin: 1.5rem 0;
+
+    &--setup {
+      font-size: 2rem;
+      text-shadow: none;
+      margin: 0 auto;
+    }
+  }
+
+  &__category-text {
+    font-family: Rubik Scribble;
+    color: $primary-color;
+    text-align: left;
+    margin: 0 auto;
+    text-transform: uppercase;
+  }
+
+  &__category-wrapper {
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    color: $primary-color;
+    cursor: pointer;
+    padding: 0.2rem 2rem;
+
+    &--selected {
+      display: inline-block;
+      color: $primary-color;
+      background-color: $background-color-selected;
+      font-weight: 800;
+    }
+  }
+
+  &__category-list {
+    margin-top: 1rem;
+    padding: 0.5rem;
+  }
+}
+
+.app-nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: transparent;
+  height: 60px;
+  width: 100%;
+
+  &__icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    gap: 1rem;
+    height: 40px;
+    padding-right: 1rem;
+
+    &--left {
+      justify-content: start;
+      padding-left: 1rem;
+    }
+  }
+
+  &__icon {
+    width: 40px;
+    height: 40px;
+    color: $nav-icon;
+  }
+}
+
+.current-joke {
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem 0;
+  border: 2px solid $primary-color;
+  border-radius: 20px;
+
+  &__text {
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    width: fit-content;
+    font-family: Inter;
+    font-size: 1.7rem;
+    padding: 0 0.5rem;
+    overflow: auto;
+
+    &--theme-night {
+      color: $font-color-secundary;
+    }
+
+    &--theme-day {
+      color: $font-color-primary;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+    margin: 0.3rem auto;
+  }
+
+  &__rating {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    height: 50px;
+    width: 100%;
+    cursor: pointer;
+  }
+
+  &__star {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+  }
+
+  &__star-icon {
+    width: 40px;
+    height: 40px;
+
+    &--full {
+      color: $star;
+    }
+
+    &--ghost {
+      color: $star-ghost;
+    }
+  }
+
+  &__generate {
+    font-family: Inter;
+    font-size: 1.2rem;
+    padding: 0.8rem 2rem;
+    background-color: $primary-color;
+    color: $secundary-color;
+    transition: all 0.2s ease-in-out;
+    border-radius: 50px 10px;
+    border: 1px solid $secundary-color;
+
+    &:hover {
+      background-color: darken($primary-color, 20);
+      color: $secundary-color;
+      cursor: pointer;
+    }
+  }
+}
+
+.favorites-jokes {
+  &__list {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    height: 70vh;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+}
+
+.favorites-joke {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: darken($primary-color, 30);
+  padding: 0.5rem;
+  gap: 0.5rem;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+  }
+
+  &__text {
+    font-size: 1rem;
+    color: $font-color-secundary;
+    text-align: start;
+  }
+
+  &__button {
+    background-color: $primary-color;
+    margin: auto 0;
+  }
+
+  &__star {
+    display: flex;
+    flex-direction: row;
+    height: 20px;
+    color: $star;
+  }
+
+  &__trash {
+    width: 30px;
+
+    &:hover {
+      color: $secundary-color;
+      cursor: pointer;
+    }
+  }
+}
+
+.app-footer {
+  background-color: transparent;
+  color: $primary-color;
+  height: 50px;
+  width: 100%;
+  font-size: 0.8rem;
+  text-align: center;
+  line-height: 20px;
+
+  &__links {
+    color: white;
+    margin: 0 auto;
+    padding: 5px;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  #app {
+    width: 420px;
+    height: 900px;
+    margin: 3rem auto;
+    border: 1px solid $primary-color;
+  }
+
+  .favorites-jokes {
+    &__list {
+      height: 700px;
+      scrollbar-width: none;
+    }
+  }
+}
